@@ -54,5 +54,15 @@ void Jogo::Executar()
             jogador2 = new Jogador(false,0,0);
             jogador2->setGerenciador(gerenciador_graf);
         }
+        if(jogador1->finalizado)
+        {
+            jogador1->finalizado = false;
+            Level = -1;
+            fase1 = nullptr;
+            jogador1 = new Jogador(true, 0, 0);
+            jogador1->setGerenciador(gerenciador_graf);
+            jogador2 = new Jogador(false, 0, 0);
+            jogador2->setGerenciador(gerenciador_graf);
+        }
     }
 }

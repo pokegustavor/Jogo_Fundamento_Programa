@@ -21,12 +21,14 @@ Fase_1::Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador)
 	listaEntidades->LEs.Add(o1);
 	//Criar chão
 	chao = new Obstaculo(sf::Vector2f(2000.0f, 200.0f), 0, 700.f);
-	chao->x = 0;
-	chao->y = 700.0f;
-	chao->getSprite()->setPosition(0.0f, 700.0f);
 	chao->getSprite()->setFillColor(sf::Color::Green);
 	chao->setGerenciador(gerenciador);
 	listaEntidades->LEs.Add(chao);
+	//criar final da fase
+	end = new Obstaculo(sf::Vector2f(20.0f, 20.0f), 500.f, 600.f);
+	end->getSprite()->setFillColor(laranja);
+	end->setGerenciador(gerenciador);
+	listaEntidades->LEs.Add(end);
 	//Criar inimigos
 	Inimigo_A* i1 = new Inimigo_A(j1, j2,500.f,500.f);
 	i1->setGerenciador(gerenciador);

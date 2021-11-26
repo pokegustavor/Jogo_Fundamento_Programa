@@ -2,13 +2,14 @@
 
 
 
-Fase::Fase()
+Fase::Fase():laranja(235, 130, 17)
 {
 	listaEntidades = nullptr;
 	j1 = nullptr;
 	j2 = nullptr;
 	gerenciador_Colid = nullptr;
 	chao = nullptr;
+	end = nullptr;
 }
 
 Fase::~Fase()
@@ -35,13 +36,12 @@ void Fase::Executar()
 		{
 			temp->noChao = false;
 		}
-		if (temp->getSprite()->getFillColor() == sf::Color::Green)
+		if (temp->getSprite()->getFillColor() == sf::Color::Green || temp->getSprite()->getFillColor() == laranja)
 		{
-			//Plataforma verdes não caem
+			//Plataforma verdes não caem, nem o final da fase
 			temp->velocidadeVertical = 0;
 			temp->noChao = true;
 		}
-		
 		for (int j = 0; j < listaEntidades->LEs.Length(); j++) //Verifica colisões
 		{
 			Entidade* alvo = listaEntidades->LEs.getItem(j);
@@ -56,7 +56,7 @@ void Fase::Executar()
 						temp->y = alvo->y - temp->getSprite()->getSize().y;
 					}
 				}
-				if (alvo->getSprite()->getFillColor() == sf::Color::Red && temp->getSprite()->getFillColor() != sf::Color::Red && temp->getSprite()->getFillColor() != sf::Color::Green)
+				if (alvo->getSprite()->getFillColor() == sf::Color::Red && temp->getSprite()->getFillColor() != sf::Color::Red && temp->getSprite()->getFillColor() != sf::Color::Green && temp->getSprite()->getFillColor() != laranja)
 				{
 					temp->morto = true;
 				}
@@ -68,7 +68,8 @@ void Fase::Executar()
 			}
 		}
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && j1->alvo == nullptr && (sf::Mouse::getPosition(*gerenciador->window).x > temp->x && sf::Mouse::getPosition(*gerenciador->window).x < temp->x + temp->getSprite()->getSize().x) &&
-			(sf::Mouse::getPosition(*gerenciador->window).y > temp->y && sf::Mouse::getPosition(*gerenciador->window).y < temp->y + temp->getSprite()->getSize().y) && temp != chao && temp != j1 && temp != j2 && temp->getSprite()->getFillColor() != sf::Color::Green)
+			(sf::Mouse::getPosition(*gerenciador->window).y > temp->y && sf::Mouse::getPosition(*gerenciador->window).y < temp->y + temp->getSprite()->getSize().y) && temp != chao && temp != j1 && temp != j2 && temp->getSprite()->getFillColor() != sf::Color::Green && temp->getSprite()->getRotation() != 45.f &&
+			temp->getSprite()->getFillColor() != laranja)
 		{
 			//Sistema captura
 			j1->alvo = temp;
@@ -111,6 +112,10 @@ void Fase::Executar()
 		{
 			//Morte
 			listaEntidades->LEs.Remove(temp);
+		}
+		if(gerenciador_Colid->Colidindo(*j1->getSprite(),*end->getSprite())|| (j2 != nullptr && gerenciador_Colid->Colidindo(*j2->getSprite(), *end->getSprite())))
+		{
+			j1->finalizado = true;
 		}
 	}
 	gerenciador->window->display();

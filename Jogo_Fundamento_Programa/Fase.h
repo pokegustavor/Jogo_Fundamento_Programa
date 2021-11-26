@@ -20,8 +20,11 @@ protected:
 	Jogador* j1;
 	Jogador* j2;
 	Gerenciador_Colisões* gerenciador_Colid;
-public:
 	Obstaculo* chao;
+	Obstaculo* end;
+	sf::Color laranja;
+public:
+	
 	Fase();
 	~Fase();
 	void Imprimir_se();

@@ -2,6 +2,7 @@
 
 Jogador::Jogador(bool jogador1, float x, float y):Personagem(x,y)
 {
+    finalizado = false;
     num_vidas = 3;
     this->Jogador1 = jogador1;
     if (jogador1)

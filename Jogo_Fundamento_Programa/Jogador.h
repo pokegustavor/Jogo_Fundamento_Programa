@@ -7,6 +7,7 @@ class Jogador :
 private:
     bool Jogador1;
 public:
+    bool finalizado;
     Entidade* alvo;
     Jogador(bool jogador1, float x, float y);
     ~Jogador();
