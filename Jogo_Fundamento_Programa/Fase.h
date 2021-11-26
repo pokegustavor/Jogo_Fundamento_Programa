@@ -10,6 +10,7 @@
 #include "Ente.h"
 #include "Projétil.h"
 #include "Inimigo_B.h"
+#include "Obstaculo_A.h"
 class Fase :
 	public Ente
 {
