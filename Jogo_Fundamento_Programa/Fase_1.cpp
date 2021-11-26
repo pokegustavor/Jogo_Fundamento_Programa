@@ -17,11 +17,12 @@ Fase_1::Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador)
 	chao->setGerenciador(gerenciador);
 	this->gerenciador = gerenciador;
 	gerenciador_Colid = new Gerenciador_Colisões;
-	Projétil* test = new Projétil(true);
-	test->setGerenciador(gerenciador);
-	listaEntidades->LEs.Add(test);
-	test->y = 60;
-	test->x = 1000;
+	Inimigo_B* i2 = new Inimigo_B(j1, j2);
+	i2->setGerenciador(gerenciador);
+	i2->setListEnt(listaEntidades);
+	i2->x = 700.0f;
+	i2->y = 500.0f;
+	listaEntidades->LEs.Add(i2);
 	if (j2 != nullptr)
 	{
 		listaEntidades->LEs.Add(j2);

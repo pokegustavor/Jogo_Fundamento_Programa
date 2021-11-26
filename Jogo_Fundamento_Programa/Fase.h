@@ -9,6 +9,7 @@
 #include "Gerenciador_Colisões.h"
 #include "Ente.h"
 #include "Projétil.h"
+#include "Inimigo_B.h"
 class Fase :
 	public Ente
 {

@@ -9,5 +9,6 @@ public:
     Projétil(bool esquerda);
     ~Projétil();
     void Executar();
+    void Imprimir_se();
 };
 

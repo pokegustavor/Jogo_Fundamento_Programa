@@ -1,6 +1,6 @@
 #include "Inimigo_A.h"
 
-Inimigo_A::Inimigo_A(Jogador* jogador1, Jogador* jogador2):Inimigo::Inimigo()
+Inimigo_A::Inimigo_A(Jogador* jogador1, Jogador* jogador2)
 {
 	this->jogador1 = jogador1;
 	this->jogador2 = jogador2;
