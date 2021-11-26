@@ -45,7 +45,7 @@ void Fase::Executar()
 		for (int j = 0; j < listaEntidades->LEs.Length(); j++) //Verifica colisões
 		{
 			Entidade* alvo = listaEntidades->LEs.getItem(j);
-			if (alvo == temp || temp == chao)continue;
+			if (alvo == temp || temp->getSprite()->getFillColor() == sf::Color::Green || temp->getSprite()->getFillColor() == laranja)continue;
 			if (gerenciador_Colid->Colidindo(*temp->getSprite(), *alvo->getSprite()))
 			{
 				if (temp->y + temp->getSprite()->getSize().y > alvo->y && (alvo->noChao || alvo->capturado))
@@ -91,7 +91,7 @@ void Fase::Executar()
 			tempo.setOutlineThickness(7.f);
 			tempo.setPosition(sf::Vector2f(j1->x - 50.f + j1->getSprite()->getSize().x / 2, j1->y - 50.f + j1->getSprite()->getSize().y / 2));
 			gerenciador->window->draw(tempo);
-			if(gerenciador_Colid->Colidindo(*temp->getSprite(), tempo) && temp != j1 && temp!= j2)
+			if(gerenciador_Colid->Colidindo(*temp->getSprite(), tempo) && temp != j1)
 			{
 				temp->paralizado = true;
 				temp->velocidadeHorizontal = 0;
