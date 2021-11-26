@@ -5,9 +5,9 @@ Jogo::Jogo()
     Level = -1;
     doisJogadores = false;
     gerenciador_graf = new Gerenciador_Grafico();
-    jogador1 = new Jogador(true);
+    jogador1 = new Jogador(true,0,0);
     jogador1->setGerenciador(gerenciador_graf);
-    jogador2 = new Jogador(false);
+    jogador2 = new Jogador(false,0,0);
     jogador2->setGerenciador(gerenciador_graf);
     fase1 = nullptr;
     menu = new Menu(gerenciador_graf, &Level, &doisJogadores);
@@ -49,9 +49,9 @@ void Jogo::Executar()
         {
             Level = -1;
             fase1 = nullptr;
-            jogador1 = new Jogador(true);
+            jogador1 = new Jogador(true,0,0);
             jogador1->setGerenciador(gerenciador_graf);
-            jogador2 = new Jogador(false);
+            jogador2 = new Jogador(false,0,0);
             jogador2->setGerenciador(gerenciador_graf);
         }
     }

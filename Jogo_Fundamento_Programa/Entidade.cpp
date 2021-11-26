@@ -1,15 +1,17 @@
 #include "Entidade.h"
 
-Entidade::Entidade():sprite(sf::Vector2f(20.0f,20.0f))
+Entidade::Entidade(float x, float y):sprite(sf::Vector2f(20.0f,20.0f))
 {
-	x = 0;
-	y = 0;
+	this->x = x;
+	this->y = y;
+	sprite.setPosition(x, y);
 	velocidadeVertical = 0;
 	velocidadeHorizontal = 0;
 	velocidadeMax = 1.0f;
 	capturado = false;
 	morto = false;
 	noChao = false;
+	paralizado = false;
 }
 
 Entidade::~Entidade()
@@ -19,6 +21,7 @@ Entidade::~Entidade()
 
 void Entidade::Executar()
 {
+	sprite.setPosition(x, y);
 	if(capturado)
 	{
 		//locidadeHorizontal += x - (float)sf::Mouse::getPosition(*gerenciador->window).x - sprite.getSize().x / 2.0f;
@@ -27,7 +30,7 @@ void Entidade::Executar()
 		y = (float)sf::Mouse::getPosition(*gerenciador->window).y - sprite.getSize().y/2.0f;
 		
 	}
-	else
+	else if(!paralizado)
 	{
 		if (x + velocidadeHorizontal < 0)
 		{

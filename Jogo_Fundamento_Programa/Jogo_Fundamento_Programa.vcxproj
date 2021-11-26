@@ -161,6 +161,7 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Obstaculo_A.cpp" />
+    <ClCompile Include="Obstaculo_B.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Projétil.cpp" />
   </ItemGroup>
@@ -182,6 +183,7 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Obstaculo_A.h" />
+    <ClInclude Include="Obstaculo_B.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Projétil.h" />
   </ItemGroup>

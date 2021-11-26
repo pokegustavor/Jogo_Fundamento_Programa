@@ -1,6 +1,6 @@
 #include "Personagem.h"
 
-Personagem::Personagem()
+Personagem::Personagem(float x, float y):Entidade(x,y)
 {
 	num_vidas = 1;
 }

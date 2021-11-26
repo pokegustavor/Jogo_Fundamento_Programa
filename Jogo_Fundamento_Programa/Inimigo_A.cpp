@@ -1,6 +1,6 @@
 #include "Inimigo_A.h"
 
-Inimigo_A::Inimigo_A(Jogador* jogador1, Jogador* jogador2)
+Inimigo_A::Inimigo_A(Jogador* jogador1, Jogador* jogador2, float x, float y):Inimigo(x,y)
 {
 	this->jogador1 = jogador1;
 	this->jogador2 = jogador2;
@@ -80,7 +80,7 @@ void Inimigo_A::AtualizarAlvo()
 void Inimigo_A::Executar()
 {
 	AtualizarAlvo();
-	if (alvo != nullptr && !capturado)
+	if (alvo != nullptr && !capturado && !paralizado)
 	{
 		if (alvo->x > x)
 		{

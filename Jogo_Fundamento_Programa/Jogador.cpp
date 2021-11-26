@@ -1,6 +1,6 @@
 #include "Jogador.h"
 
-Jogador::Jogador(bool jogador1)
+Jogador::Jogador(bool jogador1, float x, float y):Personagem(x,y)
 {
     num_vidas = 3;
     this->Jogador1 = jogador1;

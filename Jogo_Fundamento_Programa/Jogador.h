@@ -8,7 +8,7 @@ private:
     bool Jogador1;
 public:
     Entidade* alvo;
-    Jogador(bool jogador1);
+    Jogador(bool jogador1, float x, float y);
     ~Jogador();
     void Move();
     void Executar();

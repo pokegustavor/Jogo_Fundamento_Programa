@@ -1,6 +1,6 @@
 #include "Inimigo.h"
 
-Inimigo::Inimigo()
+Inimigo::Inimigo(float x, float y):Personagem(x,y)
 {
 	num_vidas = 1;
 	alvo = nullptr;

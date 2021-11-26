@@ -1,6 +1,6 @@
 #include "Obstaculo_A.h"
 
-Obstaculo_A::Obstaculo_A(sf::Vector2f size):Obstaculo(size)
+Obstaculo_A::Obstaculo_A(sf::Vector2f size, float x, float y):Obstaculo(size,x,y)
 {
 	sprite.setFillColor(sf::Color::Green);
 }

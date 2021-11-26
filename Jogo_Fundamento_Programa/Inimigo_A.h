@@ -7,7 +7,7 @@ class Inimigo_A :
 {
 private:
 public:
-    Inimigo_A(Jogador* jogador1, Jogador* jogador2);
+    Inimigo_A(Jogador* jogador1, Jogador* jogador2, float x, float y);
     ~Inimigo_A();
     void AtualizarAlvo();
     void Executar();

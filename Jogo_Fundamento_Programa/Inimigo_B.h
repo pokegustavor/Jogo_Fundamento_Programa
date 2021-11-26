@@ -11,7 +11,7 @@ private:
     time_t ultimoTiro;
     void Atirar();
 public:
-    Inimigo_B(Jogador* jogador1, Jogador* jogador2);
+    Inimigo_B(Jogador* jogador1, Jogador* jogador2, float x, float y);
     ~Inimigo_B();
     void Executar();
     void Imprimir_se();

@@ -6,7 +6,7 @@ class Projétil :
 private:
     bool esquerda;
 public:
-    Projétil(bool esquerda);
+    Projétil(bool esquerda, float x, float y);
     ~Projétil();
     void Executar();
     void Imprimir_se();

@@ -12,7 +12,7 @@ protected:
     Jogador* jogador2;
     ListaEntidades* entidades;
 public:
-    Inimigo();
+    Inimigo(float x, float y);
     ~Inimigo();
     void Executar();
     void setListEnt(ListaEntidades* lista);

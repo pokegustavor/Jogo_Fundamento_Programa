@@ -1,12 +1,12 @@
 #pragma once
 #include "Obstaculo.h"
-class Obstaculo_A :
+class Obstaculo_B :
     public Obstaculo
 {
 private:
 public:
-    Obstaculo_A(sf::Vector2f size, float x, float y);
-    ~Obstaculo_A();
+    Obstaculo_B(sf::Vector2f size, float x, float y);
+    ~Obstaculo_B();
     void Executar();
 };
 

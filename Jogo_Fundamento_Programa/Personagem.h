@@ -6,7 +6,7 @@ class Personagem :
 protected:
     int num_vidas;
 public:
-    Personagem();
+    Personagem(float x, float y);
     ~Personagem();
     void Executar();
     int getVidas() { return num_vidas; }

@@ -6,7 +6,7 @@ class Obstaculo :
 {
 private:
 public:
-    Obstaculo(sf::Vector2f size);
+    Obstaculo(sf::Vector2f size, float x, float y);
     ~Obstaculo();
 };
 

@@ -1,8 +1,11 @@
 #include "Projétil.h"
 
-Projétil::Projétil(bool esquerda = false)
+Projétil::Projétil(bool esquerda, float x, float y):Entidade(x,y)
 {
 	this->esquerda = esquerda;
+	this->x = x;
+	this->y = y;
+	sprite.setPosition(sf::Vector2f(x, y));
 	sprite = sf::RectangleShape(sf::Vector2f(10.0f,10.0f));
 	sprite.setFillColor(sf::Color::Red);
 }

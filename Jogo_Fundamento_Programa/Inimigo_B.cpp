@@ -7,14 +7,13 @@ void Inimigo_B::Atirar()
 	{
 		esquerda = false;
 	}
-	Projétil* tiro = new Projétil(esquerda);
-	tiro->x = x + sprite.getSize().x / 4;
-	tiro->y = y + sprite.getSize().y / 4;
+	Projétil* tiro = new Projétil(esquerda, x + sprite.getSize().x / 4, y + sprite.getSize().y / 4);
+	//Projétil* tiro = new Projétil(esquerda, 500.f, 500.f);
 	tiro->setGerenciador(gerenciador);
 	entidades->LEs.Add(tiro);
 }
 
-Inimigo_B::Inimigo_B(Jogador* jogador1, Jogador* jogador2)
+Inimigo_B::Inimigo_B(Jogador* jogador1, Jogador* jogador2, float x, float y):Inimigo(x,y)
 {
 	this->jogador1 = jogador1;
 	this->jogador2 = jogador2;
@@ -31,7 +30,7 @@ void Inimigo_B::Executar()
 	AtualizarAlvo();
 	time_t now;
 	time(&now);
-	if ((double)(now - ultimoTiro) > 3.0 && alvo != nullptr)
+	if ((double)(now - ultimoTiro) > 3.0 && alvo != nullptr && !paralizado)
 	{
 		time(&ultimoTiro);
 		Atirar();

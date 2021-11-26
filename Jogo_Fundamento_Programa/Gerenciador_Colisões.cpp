@@ -5,21 +5,21 @@ Gerenciador_Colisões::Gerenciador_Colisões()
 	LIs = new Lista<Inimigo>;
 }
 
-bool Gerenciador_Colisões::Colidindo(Entidade* eu, Entidade* alvo)
+bool Gerenciador_Colisões::Colidindo(sf::RectangleShape eu, sf::RectangleShape alvo)
 {
-	if(eu->x + eu->getSprite()->getSize().x <= alvo->x)
+	if(eu.getPosition().x + eu.getSize().x <= alvo.getPosition().x)
 	{
 		return false;
 	}
-	if (eu->x >= alvo->x + alvo->getSprite()->getSize().x)
+	if (eu.getPosition().x >= alvo.getPosition().x + alvo.getSize().x)
 	{
 		return false;
 	}
-	if (eu->y + eu->getSprite()->getSize().y <= alvo->y)
+	if (eu.getPosition().y + eu.getSize().y <= alvo.getPosition().y)
 	{
 		return false;
 	}
-	if (eu->y >= alvo->y + alvo->getSprite()->getSize().y)
+	if (eu.getPosition().y >= alvo.getPosition().y + alvo.getSize().y)
 	{
 		return false;
 	}

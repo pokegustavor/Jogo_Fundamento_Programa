@@ -13,9 +13,10 @@ public:
 	float velocidadeHorizontal;
 	float velocidadeMax;
 	bool capturado;
+	bool paralizado;
 	bool morto;
 	bool noChao;
-	Entidade();
+	Entidade(float x, float y);
 	~Entidade();
 
 	virtual void Executar();
