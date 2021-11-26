@@ -2,6 +2,8 @@
 
 Jogador::Jogador(bool jogador1, float x, float y):Personagem(x,y)
 {
+    cargaPoder = 100.f;
+    poderAtivo = false;
     finalizado = false;
     num_vidas = 3;
     this->Jogador1 = jogador1;
@@ -17,7 +19,7 @@ Jogador::Jogador(bool jogador1, float x, float y):Personagem(x,y)
         y = 450;
         sprite.setFillColor(sf::Color::Yellow);
     }
-    velocidadeMax = 0.08f;
+    velocidadeMax = 2.f;
     alvo = nullptr;
 }
 
@@ -31,30 +33,30 @@ void Jogador::Move()
     {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
-            velocidadeHorizontal += 0.08f;
+            velocidadeHorizontal += 1.f;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         {
-            velocidadeHorizontal -= 0.08f;
+            velocidadeHorizontal -= 1.f;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && noChao)
         {
-            velocidadeVertical = -0.1f;
+            velocidadeVertical = -1.7f;
         }
     }
     else
     {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
-            velocidadeHorizontal += 0.08f;
+            velocidadeHorizontal += 1.f;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
-            velocidadeHorizontal -= 0.08f;
+            velocidadeHorizontal -= 1.f;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && noChao)
         {
-            velocidadeVertical = -0.1f;
+            velocidadeVertical = -1.7f;
         }
     }
     if(velocidadeHorizontal > velocidadeMax)

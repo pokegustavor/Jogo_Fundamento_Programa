@@ -18,11 +18,11 @@ void Projétil::Executar()
 {
 	if(esquerda)
 	{
-		velocidadeHorizontal = -0.2f;
+		velocidadeHorizontal = -7.f;
 	}
 	else
 	{
-		velocidadeHorizontal = 0.2f;
+		velocidadeHorizontal = 7.f;
 	}
 	velocidadeVertical = 0;
 	Entidade::Executar();

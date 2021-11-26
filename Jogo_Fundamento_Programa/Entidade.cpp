@@ -52,15 +52,15 @@ void Entidade::Executar()
 		x += velocidadeHorizontal;
 		if (!noChao)
 		{
-			velocidadeVertical += 0.00005f;
+			velocidadeVertical += 0.02f;
 		}
-		if (velocidadeHorizontal > 0.00000001f)
+		if (velocidadeHorizontal > 0.1f)
 		{
-			velocidadeHorizontal -= 0.00006f;
+			velocidadeHorizontal -= 0.1f;
 		}
-		else if (velocidadeHorizontal < -0.00000001f)
+		else if (velocidadeHorizontal < -0.1f)
 		{
-			velocidadeHorizontal += 0.00006f;
+			velocidadeHorizontal += 0.1f;
 		}
 		else
 		{

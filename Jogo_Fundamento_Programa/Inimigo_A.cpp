@@ -84,19 +84,19 @@ void Inimigo_A::Executar()
 	{
 		if (alvo->x > x)
 		{
-			x += 0.025f;
+			x += 2.1f;
 		}
 		else if (alvo->x < x)
 		{
-			x -= 0.025f;
+			x -= 2.1f;
 		}
 		if (alvo->y < y)
 		{
-			y -= 0.025f;;
+			y -= 2.1f;;
 		}
 		else if (alvo->y > y)
 		{
-			y += 0.025f;
+			y += 2.1f;
 		}
 	}
 	Inimigo::Executar();

@@ -17,7 +17,31 @@ Fase_1::Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador)
 		j2->y = 680.f;
 	}
 	//Criar obtsáculos
-	Obstaculo_B* s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f),1000.f,550.f);
+	Obstaculo_B* s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f),1000.f,582.f);
+	s1->setGerenciador(gerenciador);
+	listaEntidades->LEs.Add(s1);
+	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 980.f, 582.f);
+	s1->setGerenciador(gerenciador);
+	listaEntidades->LEs.Add(s1);
+	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 960.f, 582.f);
+	s1->setGerenciador(gerenciador);
+	listaEntidades->LEs.Add(s1);
+	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 940.f, 582.f);
+	s1->setGerenciador(gerenciador);
+	listaEntidades->LEs.Add(s1);
+	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 920.f, 582.f);
+	s1->setGerenciador(gerenciador);
+	listaEntidades->LEs.Add(s1);
+	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 900.f, 582.f);
+	s1->setGerenciador(gerenciador);
+	listaEntidades->LEs.Add(s1);
+	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 880.f, 582.f);
+	s1->setGerenciador(gerenciador);
+	listaEntidades->LEs.Add(s1);
+	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 860.f, 582.f);
+	s1->setGerenciador(gerenciador);
+	listaEntidades->LEs.Add(s1);
+	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 840.f, 582.f);
 	s1->setGerenciador(gerenciador);
 	listaEntidades->LEs.Add(s1);
 	Obstaculo_A* o1 = new Obstaculo_A(sf::Vector2f(200.f, 20.f), 1600.f, 650.f);
@@ -32,10 +56,10 @@ Fase_1::Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador)
 	Obstaculo_A* o4 = new Obstaculo_A(sf::Vector2f(100.f, 20.f), 0.f, 510.f);
 	o4->setGerenciador(gerenciador);
 	listaEntidades->LEs.Add(o4);
-	Obstaculo_A* o5 = new Obstaculo_A(sf::Vector2f(300.f, 20.f), 200.f, 420.f);
+	Obstaculo_A* o5 = new Obstaculo_A(sf::Vector2f(300.f, 20.f), 200.f, 440.f);
 	o5->setGerenciador(gerenciador);
 	listaEntidades->LEs.Add(o5);
-	Obstaculo_A* o6 = new Obstaculo_A(sf::Vector2f(400.f, 20.f), 550.f, 390.f);
+	Obstaculo_A* o6 = new Obstaculo_A(sf::Vector2f(400.f, 20.f), 550.f, 380.f);
 	o6->setGerenciador(gerenciador);
 	listaEntidades->LEs.Add(o6);
 	Obstaculo_A* o7 = new Obstaculo_A(sf::Vector2f(350.f, 20.f), 550.f, 310.f);
@@ -58,9 +82,13 @@ Fase_1::Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador)
 	end->setGerenciador(gerenciador);
 	listaEntidades->LEs.Add(end);
 	//Criar inimigos
-	Inimigo_A* i1 = new Inimigo_A(j1, j2,500.f,500.f);
-	i1->setGerenciador(gerenciador);
-	listaEntidades->LEs.Add(i1);
+	int num_Inim = (rand() % 7) + 3;
+	for (int i = 0; i < num_Inim; i++)
+	{
+		Inimigo_A* i1 = new Inimigo_A(j1, j2,(rand() % 500) + 400, (rand() % 400) + 100);
+		i1->setGerenciador(gerenciador);
+		listaEntidades->LEs.Add(i1);
+	}
 
 	Inimigo_B* i2 = new Inimigo_B(j1, j2,700.f,500.f);
 	i2->setGerenciador(gerenciador);
