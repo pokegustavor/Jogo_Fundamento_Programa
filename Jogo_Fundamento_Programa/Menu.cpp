@@ -68,9 +68,9 @@ void Menu::Imprimir_se()
 	gerenciador->window->clear();
 	sf::RectangleShape background = sf::RectangleShape(sf::Vector2f(1600.0f, 800.0f));
 	background.setFillColor(sf::Color::Green);
+	gerenciador->window->draw(background);
 	sf::Font font;
 	font.loadFromFile("arial.ttf");
-	gerenciador->window->draw(background);
 	sf::Text title = sf::Text("Reality Base", font, 100);
 	sf::RectangleShape baseButton = sf::RectangleShape(sf::Vector2f(500.0f, 75.0f));
 	sf::Text text = sf::Text("Play", font, 50);

@@ -82,18 +82,79 @@ Fase_1::Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador)
 	end->setGerenciador(gerenciador);
 	listaEntidades->LEs.Add(end);
 	//Criar inimigos
-	int num_Inim = (rand() % 7) + 3;
+	int num_Inim = (rand() % 4) + 3;
 	for (int i = 0; i < num_Inim; i++)
 	{
 		Inimigo_A* i1 = new Inimigo_A(j1, j2,(rand() % 500) + 400, (rand() % 400) + 100);
 		i1->setGerenciador(gerenciador);
 		listaEntidades->LEs.Add(i1);
 	}
-
-	Inimigo_B* i2 = new Inimigo_B(j1, j2,700.f,500.f);
-	i2->setGerenciador(gerenciador);
-	i2->setListEnt(listaEntidades);
-	listaEntidades->LEs.Add(i2);
+	num_Inim = (rand() % 3) + 3;
+	sf::Vector2f posicoes[5];
+	for(int i = 0; i < 5; i++)
+	{
+		posicoes[i] = sf::Vector2f(0.f, 0.f);
+	}
+	for (int i = 0; i < num_Inim; i++)
+	{
+		bool nascido = true;
+		do
+		{
+			int randpos = rand() % 8;
+			sf::Vector2f posivelPos;
+			switch (randpos)
+			{
+			case 0:
+				posivelPos = sf::Vector2f(700.f, 630.f);
+				break;
+			case 1:
+				posivelPos = sf::Vector2f(350.f, 520.f);
+				break;
+			case 2:
+				posivelPos = sf::Vector2f(750.f, 680.f);
+				break;
+			case 3:
+				posivelPos = sf::Vector2f(50.f, 490.f);
+				break;
+			case 4:
+				posivelPos = sf::Vector2f(1700.f, 630.f);
+				break;
+			case 5:
+				posivelPos = sf::Vector2f(670.f, 360.f);
+				break;
+			case 6:
+				posivelPos = sf::Vector2f(550.f, 290.f);
+				break;
+			case 7:
+				posivelPos = sf::Vector2f(340.f, 220.f);
+				break;
+			}
+			for(int j = 0; j < 5;j++)
+			{
+				if(posicoes[j] == posivelPos)
+				{
+					nascido = false;
+					break;
+				}
+			}
+			if(nascido)
+			{
+				sf::Vector2f nulo = sf::Vector2f(0.f, 0.f);
+				for(int j = 0; j < 5; j++)
+				{
+					if(posicoes[j] != nulo)
+					{
+						posicoes[j] = posivelPos;
+						break;
+					}
+				}
+				Inimigo_B* i2 = new Inimigo_B(j1, j2, posivelPos.x, posivelPos.y);
+				i2->setGerenciador(gerenciador);
+				i2->setListEnt(listaEntidades);
+				listaEntidades->LEs.Add(i2);
+			}
+		} while (!nascido);
+	}
 	
 }
 

@@ -30,10 +30,45 @@ void Jogo::Executar()
             if (event.type == sf::Event::Closed)
                 gerenciador_graf->window->close();
         }
-        //fase1->Executar();
+        sf::RectangleShape background = sf::RectangleShape(sf::Vector2f(1600.0f, 800.0f));
+        sf::Font font;
+        font.loadFromFile("arial.ttf");
+        sf::Text text = sf::Text("text", font, 50);
+        time_t now;
+        time(&now);
         switch (Level)
         {
         default:
+        case -3:
+            gerenciador_graf->window->clear();
+            background.setFillColor(sf::Color::Green);
+            gerenciador_graf->window->draw(background);
+            text.setString("You Win");
+            text.setFillColor(sf::Color::Yellow);
+            text.setCharacterSize(150.f);
+            text.setPosition(450.f, 250.f);
+            gerenciador_graf->window->draw(text);
+            gerenciador_graf->window->display();
+            if ((double)(now - timer) > 3.f)
+            {
+                Level = -1;
+            }
+            break;
+        case -2:
+            gerenciador_graf->window->clear();
+            background.setFillColor(sf::Color::Green);
+            gerenciador_graf->window->draw(background);
+            text.setString("Game Over");
+            text.setFillColor(sf::Color::Red);
+            text.setCharacterSize(150.f);
+            text.setPosition(400.f, 250.f);
+            gerenciador_graf->window->draw(text);
+            gerenciador_graf->window->display();
+            if((double)(now - timer) > 3.f)
+            {
+                Level = -1;
+            }
+            break;
         case -1:
             menu->Executar();
             break;
@@ -45,7 +80,7 @@ void Jogo::Executar()
             fase1->Executar();
             break;
         }
-        if((sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && Level != -1) || (jogador1->morto && (jogador2->morto || !doisJogadores)))
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && Level != -1)
         {
             Level = -1;
             fase1 = nullptr;
@@ -54,15 +89,26 @@ void Jogo::Executar()
             jogador2 = new Jogador(false,0,0);
             jogador2->setGerenciador(gerenciador_graf);
         }
-        if(jogador1->finalizado)
+        if((jogador1->morto && (jogador2->morto || !doisJogadores)))
         {
-            jogador1->finalizado = false;
-            Level = -1;
+            Level = -2;
             fase1 = nullptr;
             jogador1 = new Jogador(true, 0, 0);
             jogador1->setGerenciador(gerenciador_graf);
             jogador2 = new Jogador(false, 0, 0);
             jogador2->setGerenciador(gerenciador_graf);
+            time(&timer);
+        }
+        if(jogador1->finalizado)
+        {
+            jogador1->finalizado = false;
+            Level = -3;
+            fase1 = nullptr;
+            jogador1 = new Jogador(true, 0, 0);
+            jogador1->setGerenciador(gerenciador_graf);
+            jogador2 = new Jogador(false, 0, 0);
+            jogador2->setGerenciador(gerenciador_graf);
+            time(&timer);
         }
     }
 }

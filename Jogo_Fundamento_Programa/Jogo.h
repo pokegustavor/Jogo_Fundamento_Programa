@@ -20,6 +20,7 @@ private:
 	Menu* menu;
 	int Level;
 	bool doisJogadores;
+	time_t timer;
 public:
 	Jogo();
 	~Jogo();

@@ -121,6 +121,7 @@ void Fase::Executar()
 				temp->paralizado = false;
 				
 			}
+			//carga e descarga do poder
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && ((j1->poderAtivo && j1->cargaPoder > 0.f) || j1->cargaPoder > 20.f))
 			{
 				j1->poderAtivo = true;
