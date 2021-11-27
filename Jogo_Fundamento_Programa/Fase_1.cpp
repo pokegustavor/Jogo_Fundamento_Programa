@@ -107,7 +107,7 @@ Fase_1::Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador, int* 
 			switch (randpos)
 			{
 			case 0:
-				posivelPos = sf::Vector2f(700.f, 630.f);
+				posivelPos = sf::Vector2f(700.f, 570.f);
 				break;
 			case 1:
 				posivelPos = sf::Vector2f(350.f, 520.f);

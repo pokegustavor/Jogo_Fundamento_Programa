@@ -27,7 +27,7 @@ void Projétil::Executar()
 	velocidadeVertical = 0;
 	Entidade::Executar();
 	Imprimir_se();
-	if(velocidadeHorizontal == 0 && !capturado)
+	if(velocidadeHorizontal == 0 && !capturado && !paralizado)
 	{
 		morto = true;
 	}
@@ -35,9 +35,12 @@ void Projétil::Executar()
 
 void Projétil::Imprimir_se()
 {
-	Entidade::Imprimir_se();
-	sf::RectangleShape shape = sf::RectangleShape(sf::Vector2f(10.0f, 10.0f));
-	shape.setFillColor(sf::Color::White);
-	shape.setPosition(sf::Vector2f(x, y));
-	gerenciador->window->draw(shape);
+	if (!morto)
+	{
+		Entidade::Imprimir_se();
+		sf::RectangleShape shape = sf::RectangleShape(sf::Vector2f(10.0f, 10.0f));
+		shape.setFillColor(sf::Color::White);
+		shape.setPosition(sf::Vector2f(x, y));
+		gerenciador->window->draw(shape);
+	}
 }

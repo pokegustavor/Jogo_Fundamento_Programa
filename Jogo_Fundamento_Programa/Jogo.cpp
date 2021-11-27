@@ -55,7 +55,7 @@ void Jogo::Executar()
             text.setPosition(460.f, 450.f);
             gerenciador_graf->window->draw(text);
             gerenciador_graf->window->display();
-            if ((double)(now - timer) > 3.f)
+            if ((double)(now - timer) > 3.f || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) || sf::Keyboard::isKeyPressed(sf::Keyboard::Space) || sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) || sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
                 Level = -1;
             }
@@ -70,7 +70,7 @@ void Jogo::Executar()
             text.setPosition(400.f, 250.f);
             gerenciador_graf->window->draw(text);
             gerenciador_graf->window->display();
-            if((double)(now - timer) > 3.f)
+            if((double)(now - timer) > 3.f || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) || sf::Keyboard::isKeyPressed(sf::Keyboard::Space) || sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) || sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
                 Level = -1;
             }

@@ -71,8 +71,8 @@ void Jogador::Move()
 
 void Jogador::Executar()
 {
-    Move();
     Personagem::Executar();
+    Move();
 }
 
 
