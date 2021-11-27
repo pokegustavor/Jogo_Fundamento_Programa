@@ -5,7 +5,7 @@ class Fase_1 :
 {
 private:
 public:
-    Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador);
+    Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador, int* pontuacao);
     ~Fase_1();
     void Executar();
 };

@@ -23,6 +23,8 @@ protected:
 	Obstaculo* chao;
 	Obstaculo* end;
 	sf::Color laranja;
+	int* pontuacao;
+	float internalPont;
 public:
 	
 	Fase();

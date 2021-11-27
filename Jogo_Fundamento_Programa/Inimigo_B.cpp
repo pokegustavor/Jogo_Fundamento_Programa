@@ -35,6 +35,7 @@ void Inimigo_B::Executar()
 		time(&ultimoTiro);
 		Atirar();
 	}
+	capturado = false;
 	Inimigo::Executar();
 	Imprimir_se();
 }

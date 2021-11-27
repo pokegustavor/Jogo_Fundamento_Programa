@@ -1,10 +1,12 @@
 #include "Fase_1.h"
 
-Fase_1::Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador)
+Fase_1::Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador, int* pontuacao)
 {
 	this->j1 = j1;
 	this->j2 = j2;
 	this->gerenciador = gerenciador;
+	this->pontuacao = pontuacao;
+	*this->pontuacao = 500;
 	gerenciador_Colid = new Gerenciador_Colisões;
 	listaEntidades = new ListaEntidades;
 	listaEntidades->LEs.Add(j1);
@@ -85,7 +87,7 @@ Fase_1::Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador)
 	int num_Inim = (rand() % 4) + 3;
 	for (int i = 0; i < num_Inim; i++)
 	{
-		Inimigo_A* i1 = new Inimigo_A(j1, j2,(rand() % 500) + 400, (rand() % 400) + 100);
+		Inimigo_A* i1 = new Inimigo_A(j1, j2,(float)(rand() % 500) + 400.f, (float)(rand() % 400) + 100.f);
 		i1->setGerenciador(gerenciador);
 		listaEntidades->LEs.Add(i1);
 	}

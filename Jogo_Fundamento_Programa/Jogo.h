@@ -21,6 +21,7 @@ private:
 	int Level;
 	bool doisJogadores;
 	time_t timer;
+	int pontuacao;
 public:
 	Jogo();
 	~Jogo();

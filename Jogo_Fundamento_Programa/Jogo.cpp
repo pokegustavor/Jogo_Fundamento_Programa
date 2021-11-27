@@ -4,6 +4,7 @@ Jogo::Jogo()
 {
     Level = -1;
     doisJogadores = false;
+    pontuacao = 0;
     gerenciador_graf = new Gerenciador_Grafico();
     jogador1 = new Jogador(true,0,0);
     jogador1->setGerenciador(gerenciador_graf);
@@ -45,8 +46,13 @@ void Jogo::Executar()
             gerenciador_graf->window->draw(background);
             text.setString("You Win");
             text.setFillColor(sf::Color::Yellow);
-            text.setCharacterSize(150.f);
+            text.setCharacterSize(150);
             text.setPosition(450.f, 250.f);
+            gerenciador_graf->window->draw(text);
+            text.setString("Points: " + std::to_string(pontuacao));
+            text.setFillColor(sf::Color::White);
+            text.setCharacterSize(100);
+            text.setPosition(460.f, 450.f);
             gerenciador_graf->window->draw(text);
             gerenciador_graf->window->display();
             if ((double)(now - timer) > 3.f)
@@ -60,7 +66,7 @@ void Jogo::Executar()
             gerenciador_graf->window->draw(background);
             text.setString("Game Over");
             text.setFillColor(sf::Color::Red);
-            text.setCharacterSize(150.f);
+            text.setCharacterSize(150);
             text.setPosition(400.f, 250.f);
             gerenciador_graf->window->draw(text);
             gerenciador_graf->window->display();
@@ -75,7 +81,7 @@ void Jogo::Executar()
         case 0:
             if(fase1 == nullptr)
             {
-                fase1 = new Fase_1(jogador1, doisJogadores ? jogador2 : nullptr, gerenciador_graf);
+                fase1 = new Fase_1(jogador1, doisJogadores ? jogador2 : nullptr, gerenciador_graf,&pontuacao);
             }
             fase1->Executar();
             break;

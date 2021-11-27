@@ -10,6 +10,8 @@ Fase::Fase():laranja(235, 130, 17)
 	gerenciador_Colid = nullptr;
 	chao = nullptr;
 	end = nullptr;
+	pontuacao = nullptr;
+	internalPont = 0.f;
 }
 
 Fase::~Fase()
@@ -148,6 +150,17 @@ void Fase::Executar()
 				j1->finalizado = true;
 			}
 		}
+		internalPont += 0.05f;
+		if(internalPont > 1.f)
+		{
+			(*pontuacao)--;
+			internalPont = 0.f;
+		}
+		if (*pontuacao < 0)*pontuacao = 0;
+		sf::Text pontua = sf::Text(std::to_string(*pontuacao), font, 20);
+		pontua.setFillColor(sf::Color::White);
+		pontua.setPosition(0.f, 80.f);
+		gerenciador->window->draw(pontua);
 		gerenciador->window->display();
 	
 }
