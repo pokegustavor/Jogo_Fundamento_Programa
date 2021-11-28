@@ -9,6 +9,10 @@
 #include <SFML/Audio.hpp>
 #include "Fase_1.h"
 #include "Menu.h"
+#include "Fase_2.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
 class Jogo
 {
 private:
@@ -16,12 +20,13 @@ private:
 	Jogador* jogador2;
 	Gerenciador_Grafico* gerenciador_graf;
 	Gerenciador_Colisões* gerenciador_colid;
-	Fase* fase1;
+	Fase* fase;
 	Menu* menu;
 	int Level;
 	bool doisJogadores;
 	time_t timer;
 	int pontuacao;
+	bool VerificarPontuacao();
 public:
 	Jogo();
 	~Jogo();

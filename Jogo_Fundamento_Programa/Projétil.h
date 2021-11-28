@@ -5,6 +5,7 @@ class Projétil :
 {
 private:
     bool esquerda;
+    time_t tempoCapturado;
 public:
     Projétil(bool esquerda, float x, float y);
     ~Projétil();

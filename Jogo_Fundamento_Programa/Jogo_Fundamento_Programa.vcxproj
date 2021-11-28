@@ -149,11 +149,13 @@
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Fase_1.cpp" />
+    <ClCompile Include="Fase_2.cpp" />
     <ClCompile Include="Gerenciador_Colisões.cpp" />
     <ClCompile Include="Gerenciador_Grafico.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Inimigo_A.cpp" />
     <ClCompile Include="Inimigo_B.cpp" />
+    <ClCompile Include="Inimigo_C.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="Jogo_Fundamento_Programa.cpp" />
@@ -162,6 +164,7 @@
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Obstaculo_A.cpp" />
     <ClCompile Include="Obstaculo_B.cpp" />
+    <ClCompile Include="Obstaculo_C.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Projétil.cpp" />
   </ItemGroup>
@@ -171,11 +174,13 @@
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="Fase_1.h" />
+    <ClInclude Include="Fase_2.h" />
     <ClInclude Include="Gerenciador_Colisões.h" />
     <ClInclude Include="Gerenciador_Grafico.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Inimigo_A.h" />
     <ClInclude Include="Inimigo_B.h" />
+    <ClInclude Include="Inimigo_C.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="Lista.h" />
@@ -184,6 +189,7 @@
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Obstaculo_A.h" />
     <ClInclude Include="Obstaculo_B.h" />
+    <ClInclude Include="Obstaculo_C.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Projétil.h" />
   </ItemGroup>

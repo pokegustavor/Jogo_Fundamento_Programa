@@ -12,6 +12,8 @@
 #include "Inimigo_B.h"
 #include "Obstaculo_A.h"
 #include "Obstaculo_B.h"
+#include "Inimigo_C.h"
+#include "Obstaculo_C.h"
 class Fase :
 	public Ente
 {
@@ -22,6 +24,8 @@ protected:
 	Gerenciador_Colisões* gerenciador_Colid;
 	Obstaculo* chao;
 	Obstaculo* end;
+	Obstaculo_C* anti_visao;
+	int numInimigosToWin;
 	sf::Color laranja;
 	int* pontuacao;
 	float internalPont;

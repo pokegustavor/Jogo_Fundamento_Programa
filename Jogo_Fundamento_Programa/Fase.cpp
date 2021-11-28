@@ -12,6 +12,8 @@ Fase::Fase() :laranja(235, 130, 17)
 	end = nullptr;
 	pontuacao = nullptr;
 	internalPont = 0.f;
+	numInimigosToWin = -1;
+	anti_visao = nullptr;
 }
 
 Fase::~Fase()
@@ -38,11 +40,16 @@ void Fase::Executar()
 	powerDesc.setFillColor(sf::Color::White);
 	powerDesc.setPosition(0.f, 25.f);
 	gerenciador->window->draw(powerDesc);
+	int targetsAlive = numInimigosToWin;
 	for (int i = 0; i < listaEntidades->LEs.Length(); i++) //Executa todos os objetos
 	{
 		Entidade* temp = listaEntidades->LEs.getItem(i);
 		if (temp == nullptr)break;
-		if (gerenciador_Colid->Colidindo(*temp->getSprite(), *chao->getSprite())) //Verificar se está no chão
+		if(temp->getSprite()->getFillColor() == sf::Color::Cyan)
+		{
+			targetsAlive--;
+		}
+		if (chao != nullptr && (gerenciador_Colid->Colidindo(*temp->getSprite(), *chao->getSprite()))) //Verificar se está no chão
 		{
 			if (temp->velocidadeVertical > 0)
 			{
@@ -89,16 +96,32 @@ void Fase::Executar()
 		for (int j = 0; j < listaEntidades->LEs.Length(); j++) //Verifica colisões
 		{
 			Entidade* alvo = listaEntidades->LEs.getItem(j);
-			if (alvo == temp || temp->getSprite()->getFillColor() == sf::Color::Green || temp->getSprite()->getFillColor() == laranja || temp->getSprite()->getRotation() == 45)continue;
+			if (alvo == temp || temp->getSprite()->getFillColor() == sf::Color::Green || temp->getSprite()->getFillColor() == laranja || temp->getSprite()->getRotation() == 45 || (temp->getSprite()->getFillColor() == sf::Color::Red && alvo->getSprite()->getFillColor() == sf::Color::Red))continue;
 			if (gerenciador_Colid->Colidindo(*temp->getSprite(), *alvo->getSprite()))
 			{
 				if ((alvo->getSprite()->getFillColor() == sf::Color::Red && temp->getSprite()->getFillColor() != sf::Color::Red && temp->getSprite()->getFillColor() != sf::Color::Green && temp->getSprite()->getFillColor() != laranja))
 				{
-					temp->morto = true;
+					if (temp->getSprite()->getFillColor() != sf::Color::Cyan)
+					{
+						temp->morto = true;
+					}
+					else if((alvo->velocidadeHorizontal == -7.f || alvo->velocidadeHorizontal == 7.f))
+					{
+						temp->morto = true;
+						alvo->morto = true;
+					}
 				}
 				if(temp->getSprite()->getFillColor() == sf::Color::Red && alvo->getSprite()->getFillColor() != sf::Color::Red && alvo->getSprite()->getFillColor() != sf::Color::Green && alvo->getSprite()->getFillColor() != laranja)
 				{
-					alvo->morto = true;
+					if (alvo->getSprite()->getFillColor() != sf::Color::Cyan)
+					{
+						alvo->morto = true;
+					}
+					else if((temp->velocidadeHorizontal == -7.f || temp->velocidadeHorizontal == 7.f))
+					{
+						temp->morto = true;
+						alvo->morto = true;
+					}
 				}
 				gerenciador_Colid->Colidir(temp, alvo);
 			}
@@ -143,11 +166,14 @@ void Fase::Executar()
 			continue;
 		}
 		temp->Executar();
-		temp->noChao = false;
-		if (gerenciador_Colid->Colidindo(*j1->getSprite(), *end->getSprite()) || (j2 != nullptr && gerenciador_Colid->Colidindo(*j2->getSprite(), *end->getSprite())))
+		if (end != nullptr && (gerenciador_Colid->Colidindo(*j1->getSprite(), *end->getSprite()) || (j2 != nullptr && gerenciador_Colid->Colidindo(*j2->getSprite(), *end->getSprite()))))
 		{
 			j1->finalizado = true;
 		}
+	}
+	if(numInimigosToWin > 0 && numInimigosToWin - targetsAlive <= 0)
+	{
+		j1->finalizado = true;
 	}
 	internalPont += 0.05f;
 	if (internalPont > 1.f)
@@ -160,6 +186,10 @@ void Fase::Executar()
 	pontua.setFillColor(sf::Color::White);
 	pontua.setPosition(0.f, 80.f);
 	gerenciador->window->draw(pontua);
+	if(anti_visao != nullptr)
+	{
+		anti_visao->Executar();
+	}
 	gerenciador->window->display();
 
 }

@@ -8,6 +8,15 @@ Projétil::Projétil(bool esquerda, float x, float y):Entidade(x,y)
 	sprite.setPosition(sf::Vector2f(x, y));
 	sprite = sf::RectangleShape(sf::Vector2f(10.0f,10.0f));
 	sprite.setFillColor(sf::Color::Red);
+	if (esquerda)
+	{
+		velocidadeHorizontal = -7.f;
+	}
+	else
+	{
+		velocidadeHorizontal = 7.f;
+	}
+	time(&tempoCapturado);
 }
 
 Projétil::~Projétil()
@@ -16,20 +25,34 @@ Projétil::~Projétil()
 
 void Projétil::Executar()
 {
-	if(esquerda)
+	
+	velocidadeVertical = 0;
+	Entidade::Executar();
+	Imprimir_se();
+	if(capturado)
+	{
+		time_t now;
+		time(&now);
+		if((double)(now - tempoCapturado) > 0.7f)
+		{
+			morto = true;
+		}
+	}
+	else
+	{
+		time(&tempoCapturado);
+	}
+	if(velocidadeHorizontal == 0 && !capturado && !paralizado)
+	{
+		morto = true;
+	}
+	if (esquerda)
 	{
 		velocidadeHorizontal = -7.f;
 	}
 	else
 	{
 		velocidadeHorizontal = 7.f;
-	}
-	velocidadeVertical = 0;
-	Entidade::Executar();
-	Imprimir_se();
-	if(velocidadeHorizontal == 0 && !capturado && !paralizado)
-	{
-		morto = true;
 	}
 }
 

@@ -30,6 +30,10 @@ void Inimigo_B::Executar()
 	AtualizarAlvo();
 	time_t now;
 	time(&now);
+	if(paralizado)
+	{
+		time(&ultimoTiro);
+	}
 	if ((double)(now - ultimoTiro) > 3.0 && alvo != nullptr && !paralizado)
 	{
 		time(&ultimoTiro);
