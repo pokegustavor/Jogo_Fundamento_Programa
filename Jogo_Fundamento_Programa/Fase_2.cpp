@@ -51,22 +51,14 @@ Fase_2::Fase_2(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador, int* 
 	chao->setGerenciador(gerenciador);
 	listaEntidades->LEs.Add(chao);
 	//Criar chefão
-	Inimigo* i1 = new Inimigo_C(j1, j2, 800.f, 680.f);
-	i1->setGerenciador(gerenciador);
-	i1->setListEnt(listaEntidades);
-	listaEntidades->LEs.Add(i1);
-	i1 = new Inimigo_C(j1, j2, 830.f, 680.f);
-	i1->setGerenciador(gerenciador);
-	i1->setListEnt(listaEntidades);
-	listaEntidades->LEs.Add(i1);
-	i1 = new Inimigo_C(j1, j2, 860.f, 680.f);
-	i1->setGerenciador(gerenciador);
-	i1->setListEnt(listaEntidades);
-	listaEntidades->LEs.Add(i1);
-	i1 = new Inimigo_B(j1, j2, 1580.f, 680.f);
-	i1->setGerenciador(gerenciador);
-	i1->setListEnt(listaEntidades);
-	listaEntidades->LEs.Add(i1);
+	num_Inim = (rand() % 4) + 3;
+	for (int i = 0; i < num_Inim; i++)
+	{
+		Inimigo* i1 = new Inimigo_C(j1, j2, 800.f, 680.f);
+		i1->setGerenciador(gerenciador);
+		i1->setListEnt(listaEntidades);
+		listaEntidades->LEs.Add(i1);
+	}
 	//Criar inimigos
 	num_Inim = (rand() % 3) + 3;
 	sf::Vector2f posicoes[5];
