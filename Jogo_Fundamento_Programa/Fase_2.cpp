@@ -19,6 +19,15 @@ Fase_2::Fase_2(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador, int* 
 		j2->x = 70.f;
 		j2->y = 680.f;
 	}
+	//criar espinhos
+	int num_Inim = (rand() % 4) + 20;
+	Obstaculo* spike;
+	for(int i = 0; i < num_Inim; i++)
+	{
+		spike = new Obstaculo_B(sf::Vector2f(20.f, 20.f), (float)(rand()%1000) + 175.f, 610.f - ((rand() % 6) * 80.f));
+		spike->setGerenciador(gerenciador);
+		listaEntidades->LEs.Add(spike);
+	}
 	//Criar obtsáculos
 	Obstaculo* o1;
 	for (int i = 0; i < 6; i++)
@@ -59,7 +68,7 @@ Fase_2::Fase_2(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador, int* 
 	i1->setListEnt(listaEntidades);
 	listaEntidades->LEs.Add(i1);
 	//Criar inimigos
-	int num_Inim = (rand() % 3) + 3;
+	num_Inim = (rand() % 3) + 3;
 	sf::Vector2f posicoes[5];
 	for (int i = 0; i < 5; i++)
 	{
