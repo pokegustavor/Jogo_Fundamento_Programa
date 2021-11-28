@@ -19,33 +19,13 @@ Fase_1::Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador, int* 
 		j2->y = 680.f;
 	}
 	//Criar obtsáculos
-	Obstaculo_B* s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f),1000.f,582.f);
-	s1->setGerenciador(gerenciador);
-	listaEntidades->LEs.Add(s1);
-	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 980.f, 582.f);
-	s1->setGerenciador(gerenciador);
-	listaEntidades->LEs.Add(s1);
-	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 960.f, 582.f);
-	s1->setGerenciador(gerenciador);
-	listaEntidades->LEs.Add(s1);
-	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 940.f, 582.f);
-	s1->setGerenciador(gerenciador);
-	listaEntidades->LEs.Add(s1);
-	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 920.f, 582.f);
-	s1->setGerenciador(gerenciador);
-	listaEntidades->LEs.Add(s1);
-	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 900.f, 582.f);
-	s1->setGerenciador(gerenciador);
-	listaEntidades->LEs.Add(s1);
-	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 880.f, 582.f);
-	s1->setGerenciador(gerenciador);
-	listaEntidades->LEs.Add(s1);
-	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 860.f, 582.f);
-	s1->setGerenciador(gerenciador);
-	listaEntidades->LEs.Add(s1);
-	s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), 840.f, 582.f);
-	s1->setGerenciador(gerenciador);
-	listaEntidades->LEs.Add(s1);
+	int num_Inim = (rand() % 6) + 4;
+	for(int i = 0; i < num_Inim;i++)
+	{
+		Obstaculo_B* s1 = new Obstaculo_B(sf::Vector2f(20.f, 20.f), (float)(rand()%600) + 650.f, 582.f);
+		s1->setGerenciador(gerenciador);
+		listaEntidades->LEs.Add(s1);
+	}
 	Obstaculo_A* o1 = new Obstaculo_A(sf::Vector2f(200.f, 20.f), 1600.f, 650.f);
 	o1->setGerenciador(gerenciador);
 	listaEntidades->LEs.Add(o1);
@@ -84,14 +64,14 @@ Fase_1::Fase_1(Jogador* j1, Jogador* j2, Gerenciador_Grafico* gerenciador, int* 
 	end->setGerenciador(gerenciador);
 	listaEntidades->LEs.Add(end);
 	//Criar inimigos
-	int num_Inim = (rand() % 4) + 3;
+	num_Inim = (rand() % 4) + 4;
 	for (int i = 0; i < num_Inim; i++)
 	{
 		Inimigo_A* i1 = new Inimigo_A(j1, j2,(float)(rand() % 500) + 400.f, (float)(rand() % 400) + 100.f);
 		i1->setGerenciador(gerenciador);
 		listaEntidades->LEs.Add(i1);
 	}
-	num_Inim = (rand() % 3) + 3;
+	num_Inim = (rand() % 3) + 4;
 	sf::Vector2f posicoes[5];
 	for(int i = 0; i < 5; i++)
 	{

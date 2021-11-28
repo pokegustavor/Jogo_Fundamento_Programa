@@ -30,7 +30,7 @@ void Entidade::Executar()
 		y = (float)sf::Mouse::getPosition(*gerenciador->window).y - sprite.getSize().y/2.0f;
 		
 	}
-	else if(!paralizado)
+	else if(!paralizado && !morto)
 	{
 		if (x + velocidadeHorizontal < 0)
 		{

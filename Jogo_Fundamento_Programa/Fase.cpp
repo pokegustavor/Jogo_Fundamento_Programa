@@ -99,7 +99,7 @@ void Fase::Executar()
 			if (alvo == temp || temp->getSprite()->getFillColor() == sf::Color::Green || temp->getSprite()->getFillColor() == laranja || temp->getSprite()->getRotation() == 45 || (temp->getSprite()->getFillColor() == sf::Color::Red && alvo->getSprite()->getFillColor() == sf::Color::Red))continue;
 			if (gerenciador_Colid->Colidindo(*temp->getSprite(), *alvo->getSprite()))
 			{
-				if ((alvo->getSprite()->getFillColor() == sf::Color::Red && temp->getSprite()->getFillColor() != sf::Color::Red && temp->getSprite()->getFillColor() != sf::Color::Green && temp->getSprite()->getFillColor() != laranja))
+				if (alvo->getSprite()->getFillColor() == sf::Color::Red && temp->getSprite()->getFillColor() != sf::Color::Red && temp->getSprite()->getFillColor() != sf::Color::Green && temp->getSprite()->getFillColor() != laranja && !alvo->morto)
 				{
 					if (temp->getSprite()->getFillColor() != sf::Color::Cyan)
 					{
@@ -111,7 +111,7 @@ void Fase::Executar()
 						alvo->morto = true;
 					}
 				}
-				if(temp->getSprite()->getFillColor() == sf::Color::Red && alvo->getSprite()->getFillColor() != sf::Color::Red && alvo->getSprite()->getFillColor() != sf::Color::Green && alvo->getSprite()->getFillColor() != laranja)
+				if(temp->getSprite()->getFillColor() == sf::Color::Red && alvo->getSprite()->getFillColor() != sf::Color::Red && alvo->getSprite()->getFillColor() != sf::Color::Green && alvo->getSprite()->getFillColor() != laranja && !temp->morto)
 				{
 					if (alvo->getSprite()->getFillColor() != sf::Color::Cyan)
 					{

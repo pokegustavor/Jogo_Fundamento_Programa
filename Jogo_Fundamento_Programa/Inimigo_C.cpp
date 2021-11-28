@@ -26,7 +26,7 @@ void Inimigo_C::Executar()
 	if((double)(now - ultimoSpawn) > 3.f)
 	{
 		time(&ultimoSpawn);
-		if (rand() % 2 == 1)
+		if (rand() % 4 == 1)
 		{
 			Inimigo_A* servo = new Inimigo_A(jogador1, jogador2, x, y);
 			servo->setGerenciador(gerenciador);

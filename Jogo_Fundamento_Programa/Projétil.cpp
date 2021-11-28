@@ -33,7 +33,7 @@ void Projétil::Executar()
 	{
 		time_t now;
 		time(&now);
-		if((double)(now - tempoCapturado) > 0.7f)
+		if((double)(now - tempoCapturado) > 0.75f)
 		{
 			morto = true;
 		}

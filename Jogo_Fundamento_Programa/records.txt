@@ -1,4 +1,3 @@
-me,999
-mus,500
-put,499
-you,0
+yay,466
+sus,454
+tru,441
